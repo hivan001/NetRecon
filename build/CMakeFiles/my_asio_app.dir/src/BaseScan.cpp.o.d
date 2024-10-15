@@ -1,5 +1,5 @@
-CMakeFiles/my_asio_app.dir/src/TcpScan.cpp.o: \
- /home/ivan/Documents/dev/src/TcpScan.cpp /usr/include/stdc-predef.h \
+CMakeFiles/my_asio_app.dir/src/BaseScan.cpp.o: \
+ /home/ivan/Documents/dev/src/BaseScan.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -817,5 +817,4 @@ CMakeFiles/my_asio_app.dir/src/TcpScan.cpp.o: \
  /home/ivan/Documents/dev/include/asio-1.30.2/include/asio/write.hpp \
  /home/ivan/Documents/dev/include/asio-1.30.2/include/asio/write_at.hpp \
  /home/ivan/Documents/dev/include/asio-1.30.2/include/asio/impl/write_at.hpp \
- /home/ivan/Documents/dev/src/BaseScan.h \
- /home/ivan/Documents/dev/src/TcpScan.h
+ /home/ivan/Documents/dev/src/BaseScan.h

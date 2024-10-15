@@ -14,7 +14,8 @@ include_directories(${CMAKE_SOURCE_DIR}/include/asio-1.30.2/include)
 # List of source files
 set(SOURCES
     src/main.cpp
-    # src/TcpScan.cpp
+    src/TcpScan.cpp
+    src/BaseScan.cpp
 )
 
 # List of header files (optional, but good for IDEs)

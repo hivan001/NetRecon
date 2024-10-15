@@ -129,6 +129,54 @@ my_asio_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/build
 .PHONY : my_asio_app/fast
 
+src/BaseScan.o: src/BaseScan.cpp.o
+.PHONY : src/BaseScan.o
+
+# target to build an object file
+src/BaseScan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/src/BaseScan.cpp.o
+.PHONY : src/BaseScan.cpp.o
+
+src/BaseScan.i: src/BaseScan.cpp.i
+.PHONY : src/BaseScan.i
+
+# target to preprocess a source file
+src/BaseScan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/src/BaseScan.cpp.i
+.PHONY : src/BaseScan.cpp.i
+
+src/BaseScan.s: src/BaseScan.cpp.s
+.PHONY : src/BaseScan.s
+
+# target to generate assembly for a file
+src/BaseScan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/src/BaseScan.cpp.s
+.PHONY : src/BaseScan.cpp.s
+
+src/TcpScan.o: src/TcpScan.cpp.o
+.PHONY : src/TcpScan.o
+
+# target to build an object file
+src/TcpScan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/src/TcpScan.cpp.o
+.PHONY : src/TcpScan.cpp.o
+
+src/TcpScan.i: src/TcpScan.cpp.i
+.PHONY : src/TcpScan.i
+
+# target to preprocess a source file
+src/TcpScan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/src/TcpScan.cpp.i
+.PHONY : src/TcpScan.cpp.i
+
+src/TcpScan.s: src/TcpScan.cpp.s
+.PHONY : src/TcpScan.s
+
+# target to generate assembly for a file
+src/TcpScan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_asio_app.dir/build.make CMakeFiles/my_asio_app.dir/src/TcpScan.cpp.s
+.PHONY : src/TcpScan.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my_asio_app"
+	@echo "... src/BaseScan.o"
+	@echo "... src/BaseScan.i"
+	@echo "... src/BaseScan.s"
+	@echo "... src/TcpScan.o"
+	@echo "... src/TcpScan.i"
+	@echo "... src/TcpScan.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
