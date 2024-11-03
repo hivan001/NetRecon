@@ -8,10 +8,12 @@ int main()
 asio::io_context io_context;
 asio::error_code error;
 
-TcpScan scan(io_context, error);
+TcpScan scanner(io_context, error);
 
 
-scan.Scan();
+scanner.Scan();
+
+scanner.printResults();
 
 return 0;
 

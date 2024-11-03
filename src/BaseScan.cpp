@@ -10,6 +10,7 @@ void BaseScan::checkIp(std::string& input, asio::system_error& ec, std::string& 
 { 
     std::string address = "";
 try{
+    //Check to see if CIDR passed in
     if(cidr != "")
     {   int numCidr = 0;
         try
@@ -35,7 +36,7 @@ try{
     {
         address = input;
     }
-
+        //Using the make_address function to check for valid IPs
         asio::ip::address adr = asio::ip::make_address(address);
     }
     catch(const asio::system_error &ec)
@@ -74,6 +75,7 @@ std::vector<asio::ip::address> BaseScan::get_Ips() const
 
     checkIp(input, ec, cidr);
 
+
     //Either single IP or CIDR is good
     if(cidr == "")
     {   
@@ -89,15 +91,16 @@ std::vector<asio::ip::address> BaseScan::get_Ips() const
         hosts = hostFinder->second;
 
         Ips.reserve(hosts);
-
         std::string firstThreeOctets = "";
-        std::string strLastOctet;
+        std::string strLastOctet = "";
         int lastOctet = 0;
         int count = 0;
-
+        
+        //Removing the CIDR
         input.erase(input.length() - 3,3);
-        firstThreeOctets = input;
 
+
+        //Looping through the IP to break apart the first three and last octet
         for(int i = 0; i < input.length(); i++)
         {   
             if(count == 3)
@@ -107,26 +110,25 @@ std::vector<asio::ip::address> BaseScan::get_Ips() const
             else if(input[i] == '.')
             {
                 count++;
+                firstThreeOctets+=input[i];
             }
             else
-            {
-                continue;
+            {   
+                firstThreeOctets+=input[i];
             }
             
-        }   
+        }
+
 
         lastOctet = std::stoi(strLastOctet);
-
-        std::string pattern = strLastOctet;
-        size_t found = firstThreeOctets.rfind(pattern);
-
-        firstThreeOctets.replace(found,pattern.length(),"");
-
-        for(lastOctet; lastOctet <= (lastOctet+hosts) && lastOctet < 255; lastOctet++)
+    
+        //Loop to populate the vector of IPs
+        for(int i = lastOctet; i < (lastOctet+hosts) && i < 255; i++)
         {   
-            asio::ip::address adr = asio::ip::make_address(firstThreeOctets + std::to_string(lastOctet));
+            asio::ip::address adr = asio::ip::make_address(firstThreeOctets + std::to_string(i));
             Ips.push_back(adr);
         }
+
 
     }
     return Ips;

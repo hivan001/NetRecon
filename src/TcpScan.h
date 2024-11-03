@@ -6,15 +6,18 @@
 
 using asio::ip::tcp;
 
+struct ScannedIp {
+    std::vector<std::string> ports;
+};
+
 class TcpScan : public BaseScan
 {
     //difference between using initialization list and using the this keyword is that an initialization list sets the member variables at the time of construction not after
     public:
     TcpScan(asio::io_context& io_context, asio::error_code& error);
     std::vector<asio::ip::tcp::endpoint> make_tcp_endpoints(std::vector<asio::ip::address> Ips);
+    void printResults();
     void Scan() override;
-
- //   void checkIp(std::string& input, asio::system_error& ec, std::string& cidr) const;
 
 
     private:
@@ -24,6 +27,7 @@ class TcpScan : public BaseScan
     asio::ip::tcp::socket socket;
     std::vector<asio::ip::address> ips;
     std::vector<asio::ip::tcp::endpoint> endpoints; 
+    std::unordered_map<std::string, ScannedIp> results;
     
 };
 

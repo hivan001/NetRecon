@@ -1,3 +1,0 @@
-/home/ivan/Documents/dev/test/build/CMakeFiles/my_asio_app.dir
-/home/ivan/Documents/dev/test/build/CMakeFiles/edit_cache.dir
-/home/ivan/Documents/dev/test/build/CMakeFiles/rebuild_cache.dir

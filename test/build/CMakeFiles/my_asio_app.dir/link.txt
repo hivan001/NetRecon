@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/my_asio_app.dir/src/main.cpp.o CMakeFiles/my_asio_app.dir/src/BaseScan.cpp.o -o my_asio_app  -lpthread 

@@ -22,8 +22,6 @@ class BaseScan
         {"29", 6},
         {"30", 2}
         };
-        // asio::io_context& io_context;
-        // asio::error_code& error;
 
 };
 

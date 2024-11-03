@@ -7,7 +7,10 @@
 using asio::ip::tcp;
 
 
-    TcpScan::TcpScan(asio::io_context& io_context, asio::error_code& error):io_context(io_context), error(error), socket(io_context), resolver(io_context){};
+    TcpScan::TcpScan(asio::io_context& io_context, asio::error_code& error):io_context(io_context), error(error), 
+    socket(io_context), resolver(io_context){
+        this->results = results;
+    };
 
     std::vector<asio::ip::tcp::endpoint> TcpScan::make_tcp_endpoints(std::vector<asio::ip::address> ips)
     {   
@@ -40,6 +43,7 @@ using asio::ip::tcp;
 
         this->endpoints = make_tcp_endpoints(ips);
 
+
         try{
 
             for(const auto& endpoint : endpoints)
@@ -59,17 +63,32 @@ using asio::ip::tcp;
 
                 if(error == asio::error::connection_refused)
                 {
-                    std::cout<<"\033[31m"<<"Connection Refused on port "+port<<std::endl;
+                    continue;
                 }
                 else
                 {
-                    std::cout<<"\033[32m"<<"Connection is open on port: "+port<<std::endl;
+                    std::cout<<"\033[32m"<<"Connection is open on port: "+port<<std::endl<<std::endl;
+                    results[endpoint.address().to_string()].ports.push_back(port);
+
                 }
             }         
 
         }catch (const asio::system_error& e) 
         {
             std::cerr << "Error: " << e.what() << std::endl;
+        }
+    }
+
+    void TcpScan::printResults()
+    {
+        for(const auto& result : results)
+        {   std::cout<<std::endl;
+            std::cout<<"\033[0m"<<result.first<<" has "<<result.second.ports.size()<<" port(s) open"<<std::endl<<std::endl;
+            std::cout<<"\033[32m"<<"Ports open: \n";
+            for(std::string port : result.second.ports)
+            {
+                std::cout<<"\033[32m"<<port<<std::endl;
+            }
         }
     }
 
