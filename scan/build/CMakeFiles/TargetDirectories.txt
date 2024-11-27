@@ -1,0 +1,3 @@
+/home/ivan/Documents/dev/scan/build/CMakeFiles/net_recon.dir
+/home/ivan/Documents/dev/scan/build/CMakeFiles/edit_cache.dir
+/home/ivan/Documents/dev/scan/build/CMakeFiles/rebuild_cache.dir
