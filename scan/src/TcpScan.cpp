@@ -94,12 +94,16 @@ using asio::ip::tcp;
     }
 
     json TcpScan::resultsToJSON()
-    {
+    {   int i = 0; // using this to loop through the array
         for(const auto& ip : results_map)
-        {
-            results["IP"] = ip.first;
-            results["TCP Ports"] = ip.second.ports;
+        {   json scan_results;
+            results["IPs"].push_back(scan_results);
+            results["IPs"][i]["IP"] = ip.first;
+            results["IPs"][i]["TCP Ports"] = ip.second.ports;
+            i++;
         }
+
+        return results;
     }
 
     

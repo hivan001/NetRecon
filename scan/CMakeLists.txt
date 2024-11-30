@@ -16,12 +16,14 @@ set(SOURCES
     src/main.cpp
     src/TcpScan.cpp
     src/BaseScan.cpp
+    src/WriteResults.cpp
 )
 
 # List of header files (optional, but good for IDEs)
 set(HEADERS
     src/BaseScan.h
     src/TcpScan.h
+    src/WriteResults.h
 )
 
 find_package(nlohmann_json 3.0.0 REQUIRED)

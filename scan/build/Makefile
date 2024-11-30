@@ -177,6 +177,30 @@ src/TcpScan.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/TcpScan.cpp.s
 .PHONY : src/TcpScan.cpp.s
 
+src/WriteResults.o: src/WriteResults.cpp.o
+.PHONY : src/WriteResults.o
+
+# target to build an object file
+src/WriteResults.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/WriteResults.cpp.o
+.PHONY : src/WriteResults.cpp.o
+
+src/WriteResults.i: src/WriteResults.cpp.i
+.PHONY : src/WriteResults.i
+
+# target to preprocess a source file
+src/WriteResults.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/WriteResults.cpp.i
+.PHONY : src/WriteResults.cpp.i
+
+src/WriteResults.s: src/WriteResults.cpp.s
+.PHONY : src/WriteResults.s
+
+# target to generate assembly for a file
+src/WriteResults.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/WriteResults.cpp.s
+.PHONY : src/WriteResults.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/TcpScan.o"
 	@echo "... src/TcpScan.i"
 	@echo "... src/TcpScan.s"
+	@echo "... src/WriteResults.o"
+	@echo "... src/WriteResults.i"
+	@echo "... src/WriteResults.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
