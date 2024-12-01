@@ -153,6 +153,30 @@ src/BaseScan.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/BaseScan.cpp.s
 .PHONY : src/BaseScan.cpp.s
 
+src/Menu.o: src/Menu.cpp.o
+.PHONY : src/Menu.o
+
+# target to build an object file
+src/Menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/Menu.cpp.o
+.PHONY : src/Menu.cpp.o
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
+
 src/TcpScan.o: src/TcpScan.cpp.o
 .PHONY : src/TcpScan.o
 
@@ -237,6 +261,9 @@ help:
 	@echo "... src/BaseScan.o"
 	@echo "... src/BaseScan.i"
 	@echo "... src/BaseScan.s"
+	@echo "... src/Menu.o"
+	@echo "... src/Menu.i"
+	@echo "... src/Menu.s"
 	@echo "... src/TcpScan.o"
 	@echo "... src/TcpScan.i"
 	@echo "... src/TcpScan.s"

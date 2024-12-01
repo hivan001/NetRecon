@@ -1,15 +1,33 @@
 import sys
 import random
 import copy
-import icon
+import icon as icon
 import json
 from PIL import Image
 from PySide6 import QtCore, QtWidgets, QtGui
 
 class Results():
+    ad_ports = ["88","464"]
+    db_ports = ["3306","5432","27017","1521","1433"]
+    web_ports = ["80","443","8080"]
+
     def __init__(self):
-        self.images = icon.Icon()
+        self.icons = icon.Icon()
     
+
+    def get_icon_type(self, ip):
+
+        for port in ip["TCP Ports"]:
+            if port in self.ad_ports:
+                return self.icons.make_ad_icon(ip)
+            elif port in self.db_ports:
+                return self.icons.make_db_icon(ip)
+            elif port in self.web_ports:
+                return self.icons.make_web_icon(ip)
+            else:
+                return self.icons.make_pc_icon(ip)
+            
+
 
 
     def get_results(self):
@@ -30,12 +48,12 @@ class Results():
 
         data = self.get_results()
         for i in data["IPs"]:
-            pc = self.images.make_pc_icon()
-            pc.setScale(0.25)
-            pc.setPos(image_x,image_y)
-            pc.setFlags(QtWidgets.QGraphicsPixmapItem.GraphicsItemFlag.ItemIsMovable | QtWidgets.QGraphicsPixmapItem.GraphicsItemFlag.ItemIsSelectable |
+            icon = self.get_icon_type(i)
+            icon.setScale(0.25)
+            icon.setPos(image_x,image_y)
+            icon.setFlags(QtWidgets.QGraphicsPixmapItem.GraphicsItemFlag.ItemIsMovable | QtWidgets.QGraphicsPixmapItem.GraphicsItemFlag.ItemIsSelectable |
                             QtWidgets.QGraphicsPixmapItem.GraphicsItemFlag.ItemClipsToShape)
-            scene.addItem(pc)
+            scene.addItem(icon)
  
             if square_count == 0:  # Start new square
                 image_x += 50

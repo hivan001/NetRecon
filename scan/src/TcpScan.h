@@ -15,7 +15,7 @@ class TcpScan : public BaseScan
     std::vector<asio::ip::tcp::endpoint> make_tcp_endpoints(std::vector<asio::ip::address> Ips);
     void printResults();
     json resultsToJSON();
-    void Scan() override;
+    int Scan() override;
 
 
     private:

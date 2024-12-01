@@ -61,7 +61,7 @@ std::vector<asio::ip::address> BaseScan::get_Ips() const
     std::vector<asio::ip::address> Ips;
     std::cin.clear();
 
-    std::cout<<"Enter IP"<<std::endl;
+    std::cout<<"Enter Single IP or IP with CIDR Notation"<<std::endl;
 
     std::cin>>input;
 

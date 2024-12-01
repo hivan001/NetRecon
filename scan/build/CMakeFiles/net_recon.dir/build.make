@@ -83,24 +83,10 @@ CMakeFiles/net_recon.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/net_recon.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/Documents/dev/scan/src/main.cpp -o CMakeFiles/net_recon.dir/src/main.cpp.s
 
-CMakeFiles/net_recon.dir/src/TcpScan.cpp.o: CMakeFiles/net_recon.dir/flags.make
-CMakeFiles/net_recon.dir/src/TcpScan.cpp.o: /home/ivan/Documents/dev/scan/src/TcpScan.cpp
-CMakeFiles/net_recon.dir/src/TcpScan.cpp.o: CMakeFiles/net_recon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/net_recon.dir/src/TcpScan.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/net_recon.dir/src/TcpScan.cpp.o -MF CMakeFiles/net_recon.dir/src/TcpScan.cpp.o.d -o CMakeFiles/net_recon.dir/src/TcpScan.cpp.o -c /home/ivan/Documents/dev/scan/src/TcpScan.cpp
-
-CMakeFiles/net_recon.dir/src/TcpScan.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/net_recon.dir/src/TcpScan.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ivan/Documents/dev/scan/src/TcpScan.cpp > CMakeFiles/net_recon.dir/src/TcpScan.cpp.i
-
-CMakeFiles/net_recon.dir/src/TcpScan.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/net_recon.dir/src/TcpScan.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/Documents/dev/scan/src/TcpScan.cpp -o CMakeFiles/net_recon.dir/src/TcpScan.cpp.s
-
 CMakeFiles/net_recon.dir/src/BaseScan.cpp.o: CMakeFiles/net_recon.dir/flags.make
 CMakeFiles/net_recon.dir/src/BaseScan.cpp.o: /home/ivan/Documents/dev/scan/src/BaseScan.cpp
 CMakeFiles/net_recon.dir/src/BaseScan.cpp.o: CMakeFiles/net_recon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/net_recon.dir/src/BaseScan.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/net_recon.dir/src/BaseScan.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/net_recon.dir/src/BaseScan.cpp.o -MF CMakeFiles/net_recon.dir/src/BaseScan.cpp.o.d -o CMakeFiles/net_recon.dir/src/BaseScan.cpp.o -c /home/ivan/Documents/dev/scan/src/BaseScan.cpp
 
 CMakeFiles/net_recon.dir/src/BaseScan.cpp.i: cmake_force
@@ -111,10 +97,38 @@ CMakeFiles/net_recon.dir/src/BaseScan.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/net_recon.dir/src/BaseScan.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/Documents/dev/scan/src/BaseScan.cpp -o CMakeFiles/net_recon.dir/src/BaseScan.cpp.s
 
+CMakeFiles/net_recon.dir/src/Menu.cpp.o: CMakeFiles/net_recon.dir/flags.make
+CMakeFiles/net_recon.dir/src/Menu.cpp.o: /home/ivan/Documents/dev/scan/src/Menu.cpp
+CMakeFiles/net_recon.dir/src/Menu.cpp.o: CMakeFiles/net_recon.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/net_recon.dir/src/Menu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/net_recon.dir/src/Menu.cpp.o -MF CMakeFiles/net_recon.dir/src/Menu.cpp.o.d -o CMakeFiles/net_recon.dir/src/Menu.cpp.o -c /home/ivan/Documents/dev/scan/src/Menu.cpp
+
+CMakeFiles/net_recon.dir/src/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/net_recon.dir/src/Menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ivan/Documents/dev/scan/src/Menu.cpp > CMakeFiles/net_recon.dir/src/Menu.cpp.i
+
+CMakeFiles/net_recon.dir/src/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/net_recon.dir/src/Menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/Documents/dev/scan/src/Menu.cpp -o CMakeFiles/net_recon.dir/src/Menu.cpp.s
+
+CMakeFiles/net_recon.dir/src/TcpScan.cpp.o: CMakeFiles/net_recon.dir/flags.make
+CMakeFiles/net_recon.dir/src/TcpScan.cpp.o: /home/ivan/Documents/dev/scan/src/TcpScan.cpp
+CMakeFiles/net_recon.dir/src/TcpScan.cpp.o: CMakeFiles/net_recon.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/net_recon.dir/src/TcpScan.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/net_recon.dir/src/TcpScan.cpp.o -MF CMakeFiles/net_recon.dir/src/TcpScan.cpp.o.d -o CMakeFiles/net_recon.dir/src/TcpScan.cpp.o -c /home/ivan/Documents/dev/scan/src/TcpScan.cpp
+
+CMakeFiles/net_recon.dir/src/TcpScan.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/net_recon.dir/src/TcpScan.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ivan/Documents/dev/scan/src/TcpScan.cpp > CMakeFiles/net_recon.dir/src/TcpScan.cpp.i
+
+CMakeFiles/net_recon.dir/src/TcpScan.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/net_recon.dir/src/TcpScan.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/Documents/dev/scan/src/TcpScan.cpp -o CMakeFiles/net_recon.dir/src/TcpScan.cpp.s
+
 CMakeFiles/net_recon.dir/src/WriteResults.cpp.o: CMakeFiles/net_recon.dir/flags.make
 CMakeFiles/net_recon.dir/src/WriteResults.cpp.o: /home/ivan/Documents/dev/scan/src/WriteResults.cpp
 CMakeFiles/net_recon.dir/src/WriteResults.cpp.o: CMakeFiles/net_recon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/net_recon.dir/src/WriteResults.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/net_recon.dir/src/WriteResults.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/net_recon.dir/src/WriteResults.cpp.o -MF CMakeFiles/net_recon.dir/src/WriteResults.cpp.o.d -o CMakeFiles/net_recon.dir/src/WriteResults.cpp.o -c /home/ivan/Documents/dev/scan/src/WriteResults.cpp
 
 CMakeFiles/net_recon.dir/src/WriteResults.cpp.i: cmake_force
@@ -128,20 +142,22 @@ CMakeFiles/net_recon.dir/src/WriteResults.cpp.s: cmake_force
 # Object files for target net_recon
 net_recon_OBJECTS = \
 "CMakeFiles/net_recon.dir/src/main.cpp.o" \
-"CMakeFiles/net_recon.dir/src/TcpScan.cpp.o" \
 "CMakeFiles/net_recon.dir/src/BaseScan.cpp.o" \
+"CMakeFiles/net_recon.dir/src/Menu.cpp.o" \
+"CMakeFiles/net_recon.dir/src/TcpScan.cpp.o" \
 "CMakeFiles/net_recon.dir/src/WriteResults.cpp.o"
 
 # External object files for target net_recon
 net_recon_EXTERNAL_OBJECTS =
 
 net_recon: CMakeFiles/net_recon.dir/src/main.cpp.o
-net_recon: CMakeFiles/net_recon.dir/src/TcpScan.cpp.o
 net_recon: CMakeFiles/net_recon.dir/src/BaseScan.cpp.o
+net_recon: CMakeFiles/net_recon.dir/src/Menu.cpp.o
+net_recon: CMakeFiles/net_recon.dir/src/TcpScan.cpp.o
 net_recon: CMakeFiles/net_recon.dir/src/WriteResults.cpp.o
 net_recon: CMakeFiles/net_recon.dir/build.make
 net_recon: CMakeFiles/net_recon.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable net_recon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable net_recon"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/net_recon.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

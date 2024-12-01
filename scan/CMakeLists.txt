@@ -12,25 +12,32 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(${CMAKE_SOURCE_DIR}/include/asio-1.30.2/include)
 
 # List of source files
-set(SOURCES
+set(MAIN_SOURCES
     src/main.cpp
+)
+file(
+GLOB SRC_SOURCES
     src/TcpScan.cpp
     src/BaseScan.cpp
     src/WriteResults.cpp
+    src/Menu.cpp
 )
+
+set(ALL_SOURCES ${MAIN_SOURCES} ${SRC_SOURCES})
 
 # List of header files (optional, but good for IDEs)
 set(HEADERS
     src/BaseScan.h
     src/TcpScan.h
     src/WriteResults.h
+    src/Menu.h
 )
 
 find_package(nlohmann_json 3.0.0 REQUIRED)
 
 
 # Add the source files to be compiled
-add_executable(net_recon ${SOURCES} ${HEADERS})
+add_executable(net_recon ${ALL_SOURCES} ${HEADERS})
 
 # Link the pthread library, required for ASIO multithreading
 target_link_libraries(net_recon pthread nlohmann_json::nlohmann_json)

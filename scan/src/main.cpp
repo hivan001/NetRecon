@@ -3,24 +3,25 @@
 #include <asio.hpp>
 #include "TcpScan.h"
 #include "WriteResults.h"
+#include "Menu.h"
 
-int main()
-{
-asio::io_context io_context;
-asio::error_code error;
+int main(int argc, char* argv[])
+{   
+    try
+    {
+        Menu menu(argc, argv);
 
-TcpScan scanner(io_context, error);
-WriteResults writer;
+        menu.run();
 
-scanner.Scan();
+        if(std::system("cd ../../gui && python3 -m main") == 1)
+        {
+            throw std::runtime_error("Unable to build GUI");
+        }
+    }catch(const std::exception& e){
+        std::cout<<"There was an error running Net Recon"<<e.what()<<std::endl;
+    }
 
-scanner.printResults();
-
-writer.addScanToResults(scanner.resultsToJSON());
-
-writer.writeJSONFile();
-
-return 0;
+    return 0;
 
 }
 

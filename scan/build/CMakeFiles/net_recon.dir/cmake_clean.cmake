@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/net_recon.dir/src/BaseScan.cpp.o"
   "CMakeFiles/net_recon.dir/src/BaseScan.cpp.o.d"
+  "CMakeFiles/net_recon.dir/src/Menu.cpp.o"
+  "CMakeFiles/net_recon.dir/src/Menu.cpp.o.d"
   "CMakeFiles/net_recon.dir/src/TcpScan.cpp.o"
   "CMakeFiles/net_recon.dir/src/TcpScan.cpp.o.d"
   "CMakeFiles/net_recon.dir/src/WriteResults.cpp.o"

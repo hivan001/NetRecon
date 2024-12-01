@@ -38,7 +38,7 @@ using asio::ip::tcp;
         return endpoints;
     }
 
-    void TcpScan::Scan()
+    int TcpScan::Scan()
     {   
         this->ips = get_Ips();
 
@@ -72,12 +72,17 @@ using asio::ip::tcp;
                     results_map[endpoint.address().to_string()].ports.push_back(port);
 
                 }
+
+                std::cout<<"\033[0m";
             }         
 
         }catch (const asio::system_error& e) 
         {
             std::cerr << "Error: " << e.what() << std::endl;
+            return 1;
         }
+
+        return 0;
     }
 
     void TcpScan::printResults()
@@ -91,6 +96,7 @@ using asio::ip::tcp;
                 std::cout<<"\033[32m"<<port<<std::endl;
             }
         }
+        std::cout<<"\033[0m"<<std::endl;
     }
 
     json TcpScan::resultsToJSON()

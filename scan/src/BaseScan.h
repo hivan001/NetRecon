@@ -8,7 +8,7 @@ class BaseScan
 {
     public:
         virtual ~BaseScan() = default; //virtual destructor
-        virtual void Scan() = 0; // Implemented by concrete factories
+        virtual int Scan() = 0; // Implemented by concrete factories
         void checkIp(std::string& input, asio::system_error& ec, std::string& cidr) const;
         std::vector<asio::ip::address> get_Ips() const;
 

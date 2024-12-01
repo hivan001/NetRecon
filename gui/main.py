@@ -24,7 +24,7 @@ class Main(QtWidgets.QGraphicsView):
         icon_bottom = legend.bottom() - 30
         
 
-        legend_icons = result.images.image_items
+        legend_icons = result.icons.image_items
         legend_texts = ["- Client", "- Domain Controller", "- Database", "- Web Server"]
         #Adding the Icons
         for icon in legend_icons:
@@ -67,11 +67,6 @@ class Main(QtWidgets.QGraphicsView):
 
 
             
-
-
-
-
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     widget = Main()

@@ -6,6 +6,31 @@ from PySide6 import QtCore, QtWidgets, QtGui
 
 class Icon(QtWidgets.QGraphicsView):
     image_items = []
+    services = {
+        "20":"FTP-DATA",
+        "21":"FTP",
+        "22":"SSH",
+        "23":"TELNET",
+        "25":"SMTP",
+        "53":"DNS",
+        "69":"TFTP",
+        "80":"HTTP",
+        "88":"KERBEROS",
+        "110":"POP3",
+        "143":"IMAP",
+        "443":"HTTPS",
+        "445":"SMB",
+        "464":"KERBEROS-PASS",
+        "587":"SMTP",
+        "636":"LDAP-SSL",
+        "3306":"MYSQL",
+        "5432":"POSTGRESQL",
+        "3389":"RDP",
+        "27017":"MONGODB",
+        "1521":"ORACLEDB",
+        "1433":"MSSQL",
+        "8080":"HTTP-PROXY"
+    }
     def __init__(self):
         super().__init__()
 
@@ -39,42 +64,68 @@ class Icon(QtWidgets.QGraphicsView):
         self.image_items.append(ad_image_item)
         self.image_items.append(db_image_item)
         self.image_items.append(web_image_item)
+    def get_service(self, port):
+        if port in self.services:
+            return f" - {self.services[port]}"
+        else:
+            return ""
        
-
-
-    def make_pc_icon(self):
-        pixmap = self.image_items[0].pixmap()
-        pc = QtWidgets.QGraphicsPixmapItem(pixmap)
-        pc_x_pos = pc.pos().x()
-        pc_y_pos = pc.pos().y()
-        pc_width = pixmap.width()
+    def make_icon_group(self, data, icon):
+        icon_x_pos = icon.pos().x()
+        icon_y_pos = icon.pos().y()
+        icon_width = icon.pixmap().width()
 
         # Create a QWidget with a layout for the toggle button
-        pc_widget = QtWidgets.QWidget()
-        pc_widget.layout = QtWidgets.QVBoxLayout(pc_widget)
+        main_widget = QtWidgets.QWidget()
+        main_layout = QtWidgets.QVBoxLayout(main_widget)
 
-        pc_widget.toggle_button = QtWidgets.QPushButton("IP Address: ")
-        pc_font = QtGui.QFont("Arial", 30)
-        pc_widget.toggle_button.setFont(pc_font)
-        pc_widget.toggle_button.setCheckable(True)
-        pc_widget.toggle_button.setChecked(False)
-        pc_widget.toggle_button.setFixedSize(400, 100)
-        pc_widget.layout.addWidget(pc_widget.toggle_button)
+        main_widget.toggle_button = QtWidgets.QPushButton("IP: " + data["IP"])
+        main_widget_font = QtGui.QFont("Arial", 50)
+        main_widget.toggle_button.setFont(main_widget_font)
+        main_widget.toggle_button.setCheckable(True)
+        main_widget.toggle_button.setEnabled(True)
+        main_widget.toggle_button.setChecked(False)
+        main_widget.toggle_button.setStyleSheet(
+            """QPushButton {
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            }
+            """
+        )
+        main_widget.toggle_button.setFixedSize(800, 100)
+        main_layout.addWidget(main_widget.toggle_button)
 
         # Proxy widget for the toggle button
         toggle_button = QtWidgets.QGraphicsProxyWidget()
-        toggle_button.setWidget(pc_widget)
-        toggle_button.setPos(pc_x_pos + pc_width, pc_y_pos)
+        toggle_button.setWidget(main_widget)
+        toggle_button.setPos(icon_x_pos + icon_width, icon_y_pos)
+
 
         # Create content area as a separate QWidget
         content_widget = QtWidgets.QWidget()
         content_layout = QtWidgets.QVBoxLayout(content_widget)
-        content_label = QtWidgets.QLabel("TCP Ports")
-        content_font = QtGui.QFont("Arial", 20)
-        content_label.setFont(content_font)
-        content_label.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
-        content_widget.setFixedSize(400, 800)
-        content_layout.addWidget(content_label)
+        content_widget.label = QtWidgets.QLabel("TCP Ports: ")
+
+        # Looping through the ports and adding to the icon
+        for port in data["TCP Ports"]:
+            current_text = content_widget.label.text()
+            content_widget.label.setText(current_text + "\n" + port + self.get_service(port))
+
+
+        content_font = QtGui.QFont("Arial", 40)
+        content_widget.label.setFont(content_font)
+        content_widget.label.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
+        content_widget.setFixedSize(800, 800)
+        content_widget.setStyleSheet(
+                        """QWidget {
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            }
+            """
+        )
+        content_layout.addWidget(content_widget.label)
 
         # Proxy widget for the content area
         content_x_pos = toggle_button.pos().x()
@@ -85,27 +136,31 @@ class Icon(QtWidgets.QGraphicsView):
 
         # Group all items
         group = QtWidgets.QGraphicsItemGroup()
-        group.addToGroup(pc)
+        group.addToGroup(icon)
         group.addToGroup(toggle_button)
         group.addToGroup(content)
 
         return group
 
+    def make_pc_icon(self, data):
+        pixmap = self.image_items[0].pixmap()
+        pc = QtWidgets.QGraphicsPixmapItem(pixmap)
+        return self.make_icon_group(data,pc)
     
-    def make_ad_icon(self):
+    def make_ad_icon(self, data):
         pixmap = self.image_items[1].pixmap()
         ad = QtWidgets.QGraphicsPixmapItem(pixmap)
-        return ad
+        return self.make_icon_group(data,ad)
     
-    def make_db_icon(self):
+    def make_db_icon(self, data):
         pixmap = self.image_items[2].pixmap()
         db = QtWidgets.QGraphicsPixmapItem(pixmap)
-        return db
+        return self.make_icon_group(data,db)
     
-    def make_web_icon(self):
+    def make_web_icon(self, data):
         pixmap = self.image_items[3].pixmap()
         web = QtWidgets.QGraphicsPixmapItem(pixmap)
-        return web
+        return self.make_icon_group(data,web)
 
 
 
