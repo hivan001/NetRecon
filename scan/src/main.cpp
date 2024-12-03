@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 
         menu.run();
 
-        if(std::system("cd ../../gui && python3 -m main") == 1)
+        if(std::system("python3 -m main") == 1)
         {
             throw std::runtime_error("Unable to build GUI");
         }

@@ -1,5 +1,6 @@
 import sys
 import random
+import os
 import copy
 from PIL import Image
 from PySide6 import QtCore, QtWidgets, QtGui
@@ -64,6 +65,7 @@ class Icon(QtWidgets.QGraphicsView):
         self.image_items.append(ad_image_item)
         self.image_items.append(db_image_item)
         self.image_items.append(web_image_item)
+        
     def get_service(self, port):
         if port in self.services:
             return f" - {self.services[port]}"

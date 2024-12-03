@@ -1,7 +1,7 @@
 import sys
 import random
 import copy
-import icon as icon
+import icon
 import json
 from PIL import Image
 from PySide6 import QtCore, QtWidgets, QtGui
@@ -31,13 +31,14 @@ class Results():
 
 
     def get_results(self):
+        json_path = "../results/results.json"
         try:
-            f = open("../results/results.json", "r")
-            data=json.load(f)
+            f = open(json_path,"r")
+            json_data=json.load(f)
         except:
             print("Unable to open Results.json")
 
-        return data
+        return json_data
 
 
     def plot_results(self, scene):

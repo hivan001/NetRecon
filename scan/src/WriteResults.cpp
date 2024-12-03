@@ -14,7 +14,7 @@ void WriteResults::addScanToResults(json results)
 }
 
 void WriteResults::writeJSONFile()
-{   std::string path = "../../results/";
+{   std::string path = "results/";
     std::string filename = "results.json";
     std::string filepath = path + filename;
     std::ofstream Results(filepath);
