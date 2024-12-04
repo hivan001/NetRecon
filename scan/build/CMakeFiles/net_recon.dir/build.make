@@ -156,6 +156,7 @@ net_recon: CMakeFiles/net_recon.dir/src/Menu.cpp.o
 net_recon: CMakeFiles/net_recon.dir/src/TcpScan.cpp.o
 net_recon: CMakeFiles/net_recon.dir/src/WriteResults.cpp.o
 net_recon: CMakeFiles/net_recon.dir/build.make
+net_recon: libscan_lib.a
 net_recon: CMakeFiles/net_recon.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ivan/Documents/dev/scan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable net_recon"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/net_recon.dir/link.txt --verbose=$(VERBOSE)

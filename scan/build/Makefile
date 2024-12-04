@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ivan/Documents/dev/scan/build/CMakeFiles /home/ivan/Documents/dev/scan/build//CMakeFiles/progress.marks
@@ -129,12 +174,91 @@ net_recon/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/build
 .PHONY : net_recon/fast
 
+#=============================================================================
+# Target rules for targets named scan_lib
+
+# Build rule for target.
+scan_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 scan_lib
+.PHONY : scan_lib
+
+# fast build rule for target.
+scan_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/build
+.PHONY : scan_lib/fast
+
+#=============================================================================
+# Target rules for targets named net_recon_tests
+
+# Build rule for target.
+net_recon_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net_recon_tests
+.PHONY : net_recon_tests
+
+# fast build rule for target.
+net_recon_tests/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/net_recon_tests.dir/build.make test/CMakeFiles/net_recon_tests.dir/build
+.PHONY : net_recon_tests/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 src/BaseScan.o: src/BaseScan.cpp.o
 .PHONY : src/BaseScan.o
 
 # target to build an object file
 src/BaseScan.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/BaseScan.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/BaseScan.cpp.o
 .PHONY : src/BaseScan.cpp.o
 
 src/BaseScan.i: src/BaseScan.cpp.i
@@ -143,6 +267,7 @@ src/BaseScan.i: src/BaseScan.cpp.i
 # target to preprocess a source file
 src/BaseScan.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/BaseScan.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/BaseScan.cpp.i
 .PHONY : src/BaseScan.cpp.i
 
 src/BaseScan.s: src/BaseScan.cpp.s
@@ -151,6 +276,7 @@ src/BaseScan.s: src/BaseScan.cpp.s
 # target to generate assembly for a file
 src/BaseScan.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/BaseScan.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/BaseScan.cpp.s
 .PHONY : src/BaseScan.cpp.s
 
 src/Menu.o: src/Menu.cpp.o
@@ -159,6 +285,7 @@ src/Menu.o: src/Menu.cpp.o
 # target to build an object file
 src/Menu.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/Menu.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/Menu.cpp.o
 .PHONY : src/Menu.cpp.o
 
 src/Menu.i: src/Menu.cpp.i
@@ -167,6 +294,7 @@ src/Menu.i: src/Menu.cpp.i
 # target to preprocess a source file
 src/Menu.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/Menu.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/Menu.cpp.i
 .PHONY : src/Menu.cpp.i
 
 src/Menu.s: src/Menu.cpp.s
@@ -175,6 +303,7 @@ src/Menu.s: src/Menu.cpp.s
 # target to generate assembly for a file
 src/Menu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/Menu.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/Menu.cpp.s
 .PHONY : src/Menu.cpp.s
 
 src/TcpScan.o: src/TcpScan.cpp.o
@@ -183,6 +312,7 @@ src/TcpScan.o: src/TcpScan.cpp.o
 # target to build an object file
 src/TcpScan.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/TcpScan.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/TcpScan.cpp.o
 .PHONY : src/TcpScan.cpp.o
 
 src/TcpScan.i: src/TcpScan.cpp.i
@@ -191,6 +321,7 @@ src/TcpScan.i: src/TcpScan.cpp.i
 # target to preprocess a source file
 src/TcpScan.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/TcpScan.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/TcpScan.cpp.i
 .PHONY : src/TcpScan.cpp.i
 
 src/TcpScan.s: src/TcpScan.cpp.s
@@ -199,6 +330,7 @@ src/TcpScan.s: src/TcpScan.cpp.s
 # target to generate assembly for a file
 src/TcpScan.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/TcpScan.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/TcpScan.cpp.s
 .PHONY : src/TcpScan.cpp.s
 
 src/WriteResults.o: src/WriteResults.cpp.o
@@ -207,6 +339,7 @@ src/WriteResults.o: src/WriteResults.cpp.o
 # target to build an object file
 src/WriteResults.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/WriteResults.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/WriteResults.cpp.o
 .PHONY : src/WriteResults.cpp.o
 
 src/WriteResults.i: src/WriteResults.cpp.i
@@ -215,6 +348,7 @@ src/WriteResults.i: src/WriteResults.cpp.i
 # target to preprocess a source file
 src/WriteResults.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/WriteResults.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/WriteResults.cpp.i
 .PHONY : src/WriteResults.cpp.i
 
 src/WriteResults.s: src/WriteResults.cpp.s
@@ -223,6 +357,7 @@ src/WriteResults.s: src/WriteResults.cpp.s
 # target to generate assembly for a file
 src/WriteResults.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/WriteResults.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/WriteResults.cpp.s
 .PHONY : src/WriteResults.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -231,6 +366,7 @@ src/main.o: src/main.cpp.o
 # target to build an object file
 src/main.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -239,6 +375,7 @@ src/main.i: src/main.cpp.i
 # target to preprocess a source file
 src/main.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -247,6 +384,7 @@ src/main.s: src/main.cpp.s
 # target to generate assembly for a file
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/net_recon.dir/build.make CMakeFiles/net_recon.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/scan_lib.dir/build.make CMakeFiles/scan_lib.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -256,8 +394,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... net_recon"
+	@echo "... net_recon_tests"
+	@echo "... scan_lib"
 	@echo "... src/BaseScan.o"
 	@echo "... src/BaseScan.i"
 	@echo "... src/BaseScan.s"

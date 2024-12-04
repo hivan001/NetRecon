@@ -9,8 +9,8 @@ using asio::ip::tcp;
 
     TcpScan::TcpScan(asio::io_context& io_context, asio::error_code& error):io_context(io_context), error(error), 
     socket(io_context), resolver(io_context){
-        this->results_map = results_map;
-        this->results = results;
+        // this->results_map = results_map;
+        // this->results = results;
     };
 
     std::vector<asio::ip::tcp::endpoint> TcpScan::make_tcp_endpoints(std::vector<asio::ip::address> ips)
@@ -111,5 +111,10 @@ using asio::ip::tcp;
 
         return results;
     }
+    const std::unordered_map<std::string, TcpScan::ScannedIp>& TcpScan::getResultsMap() const
+    {
+        return results_map;
+    }
+
 
     

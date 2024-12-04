@@ -6,8 +6,8 @@
 #include <asio.hpp>
 #include "BaseScan.h"
 
-void BaseScan::checkIp(std::string& input, asio::system_error& ec, std::string& cidr) const 
-{ 
+int BaseScan::checkIp(std::string& input, asio::system_error& ec, std::string& cidr) const 
+{   int returnCode = 0;
     std::string address = "";
 try{
     //Check to see if CIDR passed in
@@ -21,7 +21,7 @@ try{
         {   std::cout<<"Invalid CIDR passed in, please try again"<<std::endl;
             std::cerr << e.what() << '\n';
 
-            get_Ips();
+            returnCode = 1;
         }
 
         if(numCidr > 30 || numCidr < 24)
@@ -40,30 +40,43 @@ try{
         asio::ip::address adr = asio::ip::make_address(address);
     }
     catch(const asio::system_error &ec)
-    {
+    {   
         std::cout<<"Unable to resolve the IP address, please try a different IP or CIDR \n"<<std::endl;
-        get_Ips();
+        returnCode = 2;
     }
     catch(const std::invalid_argument &e)
     {
         std::cerr<<e.what()<<std::endl;
-        get_Ips();
+        returnCode = 3;
     }
+
+    return returnCode;
     
 }
 
-std::vector<asio::ip::address> BaseScan::get_Ips() const
-{
+std::string BaseScan::get_user_input() const
+{   
     std::string input;
+    std::cin.clear();
+    std::cout<<"Enter Single IP or IP with CIDR Notation"<<std::endl;
+    std::cin>>input;
+
+    return input;
+}
+
+std::vector<asio::ip::address> BaseScan::get_Ips() const
+{   std::string input;
     asio::system_error ec;
     std::string cidr = "";
     int hosts = 0;
     std::vector<asio::ip::address> Ips;
-    std::cin.clear();
+    // std::cin.clear();
 
-    std::cout<<"Enter Single IP or IP with CIDR Notation"<<std::endl;
+    // std::cout<<"Enter Single IP or IP with CIDR Notation"<<std::endl;
 
-    std::cin>>input;
+    // std::cin>>input;
+
+    input = get_user_input();
 
     //Checking to see if user passed in a CIDR
     std::size_t cidrSearch = input.find("/");
@@ -73,7 +86,11 @@ std::vector<asio::ip::address> BaseScan::get_Ips() const
         cidr = input.substr(input.length() - 2, 2);
     }
 
-    checkIp(input, ec, cidr);
+    if(checkIp(input, ec, cidr)>0)
+    {
+        get_Ips();
+    }
+
 
 
     //Either single IP or CIDR is good

@@ -75,6 +75,8 @@
         "forward_list": "cpp",
         "map": "cpp",
         "ranges": "cpp",
-        "valarray": "cpp"
-    }
+        "valarray": "cpp",
+        "unordered_set": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

@@ -35,12 +35,15 @@ set(HEADERS
 
 find_package(nlohmann_json 3.0.0 REQUIRED)
 
-
+add_subdirectory(test)
 # Add the source files to be compiled
 add_executable(net_recon ${ALL_SOURCES} ${HEADERS})
 
+add_library(scan_lib STATIC ${ALL_SOURCES})
+
+
 # Link the pthread library, required for ASIO multithreading
-target_link_libraries(net_recon pthread nlohmann_json::nlohmann_json)
+target_link_libraries(net_recon PRIVATE scan_lib pthread nlohmann_json::nlohmann_json)
 
 add_definitions(-DASIO_STANDALONE)
 
