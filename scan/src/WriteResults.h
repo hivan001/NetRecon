@@ -12,6 +12,7 @@ class WriteResults
         WriteResults();
         void addScanToResults(json results);
         void writeJSONFile();
+        json getScanResults();
 
 
     private:

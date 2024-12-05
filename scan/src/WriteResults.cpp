@@ -41,3 +41,8 @@ void WriteResults::writeJSONFile()
 
 
 }
+
+json WriteResults::getScanResults()
+{
+    return scanResults;
+}

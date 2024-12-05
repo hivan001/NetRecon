@@ -17,7 +17,7 @@ private:
 public:
     Menu(int argc, char* argv[]);
     void run();
-    int init(std::string scan_type);
+    virtual int init(std::string scan_type);
 };
 
 

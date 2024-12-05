@@ -70,11 +70,6 @@ std::vector<asio::ip::address> BaseScan::get_Ips() const
     std::string cidr = "";
     int hosts = 0;
     std::vector<asio::ip::address> Ips;
-    // std::cin.clear();
-
-    // std::cout<<"Enter Single IP or IP with CIDR Notation"<<std::endl;
-
-    // std::cin>>input;
 
     input = get_user_input();
 
