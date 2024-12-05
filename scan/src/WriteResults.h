@@ -11,7 +11,7 @@ class WriteResults
     public:
         WriteResults();
         void addScanToResults(json results);
-        void writeJSONFile();
+        virtual void writeJSONFile(std::string path) const;
         json getScanResults();
 
 

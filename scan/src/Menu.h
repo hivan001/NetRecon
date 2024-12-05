@@ -12,7 +12,7 @@ private:
     char** argv;
     asio::io_context io_context;
     asio::error_code error;
-    json results;
+    // json results;
 
 public:
     Menu(int argc, char* argv[]);

@@ -13,8 +13,9 @@ void WriteResults::addScanToResults(json results)
     //I'll eventually need to find a way to combine tcp and udp results into the main results file
 }
 
-void WriteResults::writeJSONFile()
-{   std::string path = "results/";
+void WriteResults::writeJSONFile(std::string path) const
+// {   std::string path = "results/";
+    {
     std::string filename = "results.json";
     std::string filepath = path + filename;
     std::ofstream Results(filepath);

@@ -10,7 +10,8 @@
     };
 
     int Menu::init(std::string scan_type)
-    {   
+    {   WriteResults writer;
+
         if(scan_type == "tcp")
         {
             TcpScan scanner(io_context, error);
@@ -23,7 +24,9 @@
             else
             {
                 scanner.printResults();
-                results = scanner.resultsToJSON();
+                // results = scanner.resultsToJSON();
+                writer.addScanToResults(scanner.resultsToJSON());
+                writer.writeJSONFile("results/");
             }
         }
         else if(scan_type == "udp")
@@ -36,11 +39,11 @@
         }
 
 
-        WriteResults writer;
+        // WriteResults writer;
 
-        writer.addScanToResults(results);
+        // writer.addScanToResults(results);
 
-        writer.writeJSONFile();
+        // writer.writeJSONFile();
 
         return 0;
 
